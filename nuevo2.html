@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vicion Power - Libertad Financiera a Tu Alcance</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa; /* Fondo claro */
+            color: #343a40; /* Texto principal oscuro */
+        }
+        .text-primary {
+            color: #2a6f97; /* Azul principal */
+        }
+        .bg-primary {
+            background-color: #2a6f97; /* Azul principal */
+        }
+        .bg-secondary {
+            background-color: #4a90e2; /* Azul secundario */
+        }
+        .bg-dark-gray {
+            background-color: #343a40; /* Gris oscuro */
+        }
+        .text-dark-gray {
+            color: #343a40; /* Gris oscuro */
+        }
+        .border-primary {
+            border-color: #2a6f97; /* Borde azul principal */
+        }
+        .shadow-lg-custom {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-slide-up {
+            animation: slideUp 0.8s ease-out forwards;
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .feature-card {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.2);
+        }
+        .testimonial-card {
+            background-color: #ffffff;
+            border-radius: 0.75rem; /* rounded-xl */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .cta-button {
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .cta-button:hover {
+            background-color: #1a5a8a; /* Un azul más oscuro al pasar el ratón */
+            transform: translateY(-2px);
+        }
+        /* Custom styles for the calculator output */
+        .calculator-output-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        .calculator-output-item {
+            background-color: #e0f2f7; /* Light blue background */
+            padding: 1rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            font-weight: 500;
+            color: #2a6f97;
+        }
+        .calculator-output-item span {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 0.5rem;
+        }
+        /* Specific styles for calculator input buttons */
+        .calculator-btn-group button {
+            @apply px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200;
+        }
+        .calculator-btn-group button.active {
+            @apply bg-primary text-white;
+        }
+        .calculator-btn-group button:not(.active):hover {
+            @apply bg-gray-100;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header and Navigation -->
+    <header class="bg-white shadow-md py-4 sticky top-0 z-50 rounded-b-xl">
+        <nav class="container mx-auto px-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-primary">Vicion Power</div>
+            <div class="hidden md:flex space-x-6">
+                <a href="#inicio" class="text-gray-600 hover:text-primary transition duration-300">Inicio</a>
+                <a href="#servicios" class="text-gray-600 hover:text-primary transition duration-300">Servicios</a>
+                <a href="#calculadora" class="text-gray-600 hover:text-primary transition duration-300">Calculadora</a>
+                <a href="#nosotros" class="text-gray-600 hover:text-primary transition duration-300">Nosotros</a>
+                <a href="#contacto" class="text-gray-600 hover:text-primary transition duration-300">Contacto</a>
+            </div>
+            <div class="hidden md:block">
+                <a href="#contacto" class="cta-button bg-primary text-white font-bold py-2 px-6 rounded-full text-sm hover:bg-dark-gray">
+                    Invertir Ahora
+                </a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-600 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white px-4 pt-2 pb-4 space-y-2 rounded-b-xl">
+            <a href="#inicio" class="block text-gray-600 hover:text-primary transition duration-300 py-2">Inicio</a>
+            <a href="#servicios" class="block text-gray-600 hover:text-primary transition duration-300 py-2">Servicios</a>
+            <a href="#calculadora" class="block text-gray-600 hover:text-primary transition duration-300 py-2">Calculadora</a>
+            <a href="#nosotros" class="block text-gray-600 hover:text-primary transition duration-300 py-2">Nosotros</a>
+            <a href="#contacto" class="block text-gray-600 hover:text-primary transition duration-300 py-2">Contacto</a>
+            <a href="#contacto" class="block cta-button bg-primary text-white font-bold py-2 px-6 rounded-full text-sm text-center mt-4 hover:bg-dark-gray">
+                Invertir Ahora
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="inicio" class="relative bg-dark-gray text-white py-20 md:py-32 overflow-hidden rounded-b-xl">
+            <div class="container mx-auto px-4 text-center relative z-10 animate-fade-in">
+                <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6">
+                    Alcanza tu <span class="text-yellow-300">Libertad Financiera</span>
+                </h1>
+                <p class="text-lg md:text-xl mb-10 max-w-3xl mx-auto">
+                    Inversiones seguras con rendimientos del 0.77% diario. Únete a miles de inversores que ya están construyendo su futuro financiero.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#contacto" class="cta-button bg-white text-primary font-bold py-3 px-8 rounded-full text-lg hover:bg-gray-100 inline-block shadow-lg-custom">
+                        Comenzar a Invertir
+                    </a>
+                    <a href="#calculadora" class="cta-button bg-transparent border-2 border-white text-white font-bold py-3 px-8 rounded-full text-lg hover:bg-white hover:text-primary inline-block shadow-lg-custom">
+                        Ver Calculadora
+                    </a>
+                </div>
+            </div>
+            <!-- Abstract background shapes - kept for visual interest -->
+            <div class="absolute inset-0 z-0 opacity-20">
+                <div class="absolute top-1/4 left-1/4 w-48 h-48 bg-white rounded-full mix-blend-overlay blur-xl"></div>
+                <div class="absolute bottom-1/3 right-1/3 w-64 h-64 bg-white rounded-full mix-blend-overlay blur-xl"></div>
+                <div class="absolute top-1/2 left-1/2 w-32 h-32 bg-white rounded-full mix-blend-overlay blur-xl transform -translate-x-1/2 -translate-y-1/2"></div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="servicios" class="py-16 md:py-24 bg-gray-50 rounded-xl mx-4 my-8">
+            <div class="container mx-auto px-4 animate-slide-up">
+                <h2 class="text-4xl font-bold text-center text-dark-gray mb-4">Nuestros Servicios de Inversión</h2>
+                <p class="text-lg text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+                    Diversifica tu portafolio con nuestras oportunidades de inversión en sectores de alto crecimiento.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Service Card 1 -->
+                    <div class="feature-card bg-white p-8 rounded-xl shadow-lg-custom text-center">
+                        <div class="text-primary text-5xl mb-4"><i class="fas fa-chart-line"></i></div>
+                        <h3 class="text-2xl font-semibold mb-3 text-dark-gray">Servicios Financieros</h3>
+                        <p class="text-gray-600">Inversiones diversificadas en el sector financiero con rendimientos consistentes.</p>
+                    </div>
+                    <!-- Service Card 2 -->
+                    <div class="feature-card bg-white p-8 rounded-xl shadow-lg-custom text-center">
+                        <div class="text-primary text-5xl mb-4"><i class="fas fa-building"></i></div>
+                        <h3 class="text-2xl font-semibold mb-3 text-dark-gray">Real Estate</h3>
+                        <p class="text-gray-600">Oportunidades de inversión en bienes raíces con potencial de crecimiento.</p>
+                    </div>
+                    <!-- Service Card 3 -->
+                    <div class="feature-card bg-white p-8 rounded-xl shadow-lg-custom text-center">
+                        <div class="text-primary text-5xl mb-4"><i class="fas fa-lightbulb"></i></div>
+                        <h3 class="text-2xl font-semibold mb-3 text-dark-gray">Productos Inteligentes</h3>
+                        <p class="text-gray-600">Inversión en tecnología e innovación para el futuro.</p>
+                    </div>
+                    <!-- Service Card 4 -->
+                    <div class="feature-card bg-white p-8 rounded-xl shadow-lg-custom text-center">
+                        <div class="text-primary text-5xl mb-4"><i class="fas fa-gem"></i></div>
+                        <h3 class="text-2xl font-semibold mb-3 text-dark-gray">Metales</h3>
+                        <p class="text-gray-600">Inversiones seguras en metales preciosos como refugio de valor.</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                    <!-- Additional Service Card 1 -->
+                    <div class="feature-card bg-white p-8 rounded-xl shadow-lg-custom text-center">
+                        <div class="text-primary text-5xl mb-4"><i class="fas fa-percent"></i></div>
+                        <h3 class="text-2xl font-semibold mb-3 text-dark-gray">0.77% Diario</h3>
+                        <p class="text-gray-600">Rendimiento consistente de lunes a viernes.</p>
+                    </div>
+                    <!-- Additional Service Card 2 -->
+                    <div class="feature-card bg-white p-8 rounded-xl shadow-lg-custom text-center">
+                        <div class="text-primary text-5xl mb-4"><i class="fas fa-dollar-sign"></i></div>
+                        <h3 class="text-2xl font-semibold mb-3 text-dark-gray">Desde $10</h3>
+                        <p class="text-gray-600">Inversión mínima accesible para todos.</p>
+                    </div>
+                    <!-- Additional Service 3 -->
+                    <div class="feature-card bg-white p-8 rounded-xl shadow-lg-custom text-center">
+                        <div class="text-primary text-5xl mb-4"><i class="fas fa-handshake"></i></div>
+                        <h3 class="2xl font-semibold mb-3 text-dark-gray">Programa de Referidos</h3>
+                        <p class="text-gray-600">Gana comisiones por cada referido.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Income Calculator Section -->
+        <section id="calculadora" class="py-16 md:py-24 bg-primary text-white rounded-xl mx-4 my-8">
+            <div class="container mx-auto px-4 animate-slide-up">
+                <h2 class="text-4xl font-bold text-center mb-4">Calculadora de Ingresos Inteligente</h2>
+                <p class="text-lg text-center mb-12 max-w-2xl mx-auto">
+                    Descubre tu potencial de ganancias con nuestra calculadora basada en rendimientos reales del 0.77% diario.
+                </p>
+                <div class="max-w-5xl mx-auto bg-white p-8 rounded-xl shadow-lg-custom text-dark-gray grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Configuración de Inversión -->
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-4 flex items-center"><i class="fas fa-dollar-sign text-primary mr-3"></i> Configuración de Inversión</h3>
+                        <p class="text-gray-600 mb-6">Ajusta los parámetros para calcular tus ganancias potenciales.</p>
+
+                        <label for="investmentAmount" class="block text-lg font-medium mb-2">Monto de Inversión (USD)</label>
+                        <input type="number" id="investmentAmount" value="1000" min="10" max="50000"
+                               class="w-full p-3 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary text-xl mb-4"
+                               placeholder="Ej: 1000" oninput="calculateIncome()">
+
+                        <div class="flex flex-wrap gap-2 mb-6 calculator-btn-group" id="quickAmountButtons">
+                            <button class="px-4 py-2 rounded-lg border border-gray-300 active" data-amount="100">$100</button>
+                            <button class="px-4 py-2 rounded-lg border border-gray-300" data-amount="500">$500</button>
+                            <button class="px-4 py-2 rounded-lg border border-gray-300" data-amount="1000">$1,000</button>
+                            <button class="px-4 py-2 rounded-lg border border-gray-300" data-amount="5000">$5,000</button>
+                            <button class="px-4 py-2 rounded-lg border border-gray-300" data-amount="10000">$10,000</button>
+                            <button class="px-4 py-2 rounded-lg border border-gray-300" data-amount="25000">$25,000</button>
+                        </div>
+
+                        <label for="investmentPeriod" class="block text-lg font-medium mb-2">Período (días hábiles)</label>
+                        <div class="flex flex-wrap gap-2 mb-6 calculator-btn-group" id="periodButtons">
+                            <button class="px-4 py-2 rounded-lg border border-gray-300 active" data-days="22">1 mes</button>
+                            <button class="px-4 py-2 rounded-lg border border-gray-300" data-days="66">3 meses</button>
+                            <button class="px-4 py-2 rounded-lg border border-gray-300" data-days="132">6 meses</button>
+                            <button class="px-4 py-2 rounded-lg border border-gray-300" data-days="260">1 año</button>
+                        </div>
+
+                        <div class="bg-gray-100 p-6 rounded-lg mt-8">
+                            <h4 class="text-xl font-semibold mb-3 flex items-center"><i class="fas fa-info-circle text-primary mr-2"></i> Información del Rendimiento</h4>
+                            <ul class="list-disc list-inside text-gray-700 space-y-2">
+                                <li>Rendimiento diario: 0.77%</li>
+                                <li>Días de operación: Lunes a Viernes</li>
+                                <li>Inversión mínima: $10 USD</li>
+                                <li>Inversión máxima: $50,000 USD</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Proyección de Ganancias -->
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-4 flex items-center"><i class="fas fa-chart-area text-primary mr-3"></i> Proyección de Ganancias</h3>
+                        <p class="text-gray-600 mb-6">Resultados basados en tu configuración de inversión.</p>
+
+                        <div class="space-y-4" id="calculatorResults">
+                            <!-- Results will be injected here by JavaScript -->
+                        </div>
+
+                        <button class="cta-button bg-primary text-white font-bold py-3 px-6 rounded-full hover:bg-dark-gray transition duration-300 w-full mt-8" id="startInvestmentButton">
+                            Comenzar Inversión de 1000.00 US$
+                        </button>
+
+                        <p class="text-sm text-gray-500 mt-6 p-4 bg-gray-100 rounded-lg">
+                            <span class="font-semibold">Aviso Importante:</span> Los cálculos son estimaciones basadas en rendimientos históricos. Las inversiones conllevan riesgos y los rendimientos pasados no garantizan resultados futuros.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="nosotros" class="py-16 md:py-24 bg-primary text-white rounded-xl mx-4 my-8">
+            <div class="container mx-auto px-4 animate-slide-up">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-4xl font-bold mb-6">Sobre Vicion Power</h2>
+                        <p class="text-lg leading-relaxed mb-4">
+                            Somos una empresa registrada en <span class="font-semibold">México y Estados Unidos</span>, especializada en oportunidades de inversión que generan ingresos pasivos consistentes.
+                        </p>
+                        <ul class="text-lg leading-relaxed space-y-3">
+                            <li class="flex items-center"><i class="fas fa-check-circle text-yellow-300 mr-3"></i> Empresa registrada legalmente en México y EE.UU.</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-yellow-300 mr-3"></i> Rendimientos del 0.77% diario de lunes a viernes</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-yellow-300 mr-3"></i> Miles de inversores satisfechos en 6 países</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <!-- Image for money falling -->
+                        <img src="https://images.pexels.com/photos/730547/pexels-photo-730547.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Imagen de dinero cayendo" class="rounded-xl shadow-lg-custom w-full h-auto object-cover">
+                    </div>
+                </div>
+
+                <div class="mt-20">
+                    <h3 class="text-3xl font-bold text-center mb-10">Nuestras Oficinas</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="bg-white text-dark-gray p-6 rounded-lg shadow-md text-center">
+                            <i class="fas fa-map-marker-alt text-primary text-2xl mb-2"></i>
+                            <p class="font-semibold">Las Vegas, EE.UU.</p>
+                        </div>
+                        <div class="bg-white text-dark-gray p-6 rounded-lg shadow-md text-center">
+                            <i class="fas fa-map-marker-alt text-primary text-2xl mb-2"></i>
+                            <p class="font-semibold">Wenatchee, EE.UU.</p>
+                        </div>
+                        <div class="bg-white text-dark-gray p-6 rounded-lg shadow-md text-center">
+                            <i class="fas fa-map-marker-alt text-primary text-2xl mb-2"></i>
+                            <p class="font-semibold">Xalapa, México</p>
+                        </div>
+                        <div class="bg-white text-dark-gray p-6 rounded-lg shadow-md text-center">
+                            <i class="fas fa-map-marker-alt text-primary text-2xl mb-2"></i>
+                            <p class="font-semibold">Medellín, Colombia</p>
+                        </div>
+                        <div class="bg-white text-dark-gray p-6 rounded-lg shadow-md text-center">
+                            <i class="fas fa-map-marker-alt text-primary text-2xl mb-2"></i>
+                            <p class="font-semibold">Quito, Ecuador</p>
+                        </div>
+                        <div class="bg-white text-dark-gray p-6 rounded-lg shadow-md text-center">
+                            <i class="fas fa-map-marker-alt text-primary text-2xl mb-2"></i>
+                            <p class="font-semibold">Barcelona, España</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonios" class="py-16 md:py-24 bg-gray-50 rounded-xl mx-4 my-8">
+            <div class="container mx-auto px-4 animate-slide-up">
+                <h2 class="text-4xl font-bold text-center text-dark-gray mb-4">Lo que Dicen Nuestros Inversores</h2>
+                <p class="text-lg text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+                    Testimonios reales de personas que han transformado su futuro financiero.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-card text-center">
+                        <div class="text-yellow-400 text-xl mb-4">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-gray-700 italic mb-4">"Excelente plataforma, he obtenido rendimientos consistentemente durante 8 meses."</p>
+                        <p class="font-semibold text-dark-gray">María González</p>
+                        <p class="text-sm text-gray-500">México</p>
+                    </div>
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-card text-center">
+                        <div class="text-yellow-400 text-xl mb-4">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-gray-700 italic mb-4">"La transparencia y profesionalismo de Vicion Power me dan total confianza."</p>
+                        <p class="font-semibold text-dark-gray">Carlos Rodríguez</p>
+                        <p class="text-sm text-gray-500">Colombia</p>
+                    </div>
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-card text-center">
+                        <div class="text-yellow-400 text-xl mb-4">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-gray-700 italic mb-4">"Rendimientos diarios como prometido. Muy recomendable para inversores serios."</p>
+                        <p class="font-semibold text-dark-gray">Ana Martínez</p>
+                        <p class="text-sm text-gray-500">España</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contacto" class="py-16 md:py-24 bg-primary text-white rounded-xl mx-4 my-8">
+            <div class="container mx-auto px-4 text-center animate-slide-up">
+                <h2 class="text-4xl font-bold mb-4">Contacta con tu Asesor</h2>
+                <p class="text-lg mb-8">Francisco J. Coronado - Tu Asesor de Inversiones Especializado</p>
+                <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-lg-custom text-dark-gray">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                        <div class="flex flex-col items-center">
+                            <div class="text-primary text-5xl mb-3"><i class="fas fa-envelope"></i></div>
+                            <p class="font-semibold text-lg">Email</p>
+                            <p class="text-gray-700">francornetworker@gmail.com</p>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div class="text-primary text-5xl mb-3"><i class="fab fa-whatsapp"></i></div>
+                            <p class="font-semibold text-lg">WhatsApp</p>
+                            <p class="text-gray-700">+507 6030-0937</p>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div class="text-primary text-5xl mb-3"><i class="fas fa-phone-alt"></i></div>
+                            <p class="font-semibold text-lg">Teléfono</p>
+                            <p class="text-gray-700">Disponible por WhatsApp</p>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/50760300937" target="_blank" class="cta-button bg-green-500 text-white font-bold py-3 px-8 rounded-full text-lg hover:bg-green-600 inline-block shadow-lg-custom">
+                        Contactar por WhatsApp <i class="fab fa-whatsapp ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark-gray text-white py-10 rounded-t-xl">
+        <div class="container mx-auto px-4 text-center">
+            <div class="mb-6">
+                <h3 class="text-2xl font-bold text-primary mb-2">Vicion Power</h3>
+                <p class="text-gray-400">Tu socio en libertad financiera.</p>
+            </div>
+            <!-- Button to visit the blog -->
+            <div class="mb-6">
+                <a href="https://pavicionpower.blogspot.com/2024/10/descubre-una-nueva-oportunidad-de.html" target="_blank" class="cta-button bg-secondary text-white font-bold py-3 px-8 rounded-full text-lg hover:bg-blue-600 inline-block shadow-lg-custom">
+                    Visita Nuestro Blog <i class="fas fa-external-link-alt ml-2"></i>
+                </a>
+            </div>
+            <hr class="border-gray-700 mb-6">
+            <p class="text-gray-500 text-sm">&copy; 2025 Vicion Power. Todos los derechos reservados.</p>
+            <p class="text-gray-500 text-sm mt-2">
+                <a href="#" class="hover:text-primary">Política de Privacidad</a> |
+                <a href="#" class="hover:text-primary">Términos y Condiciones</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                // Close mobile menu after clicking a link
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Income Calculator Logic
+        function calculateIncome() {
+            const investmentAmountInput = document.getElementById('investmentAmount');
+            let investmentAmount = parseFloat(investmentAmountInput.value);
+            const dailyReturnRate = 0.0077; // 0.77%
+            const workingDaysPerWeek = 5; // Monday to Friday
+
+            const resultsDiv = document.getElementById('calculatorResults');
+            resultsDiv.innerHTML = ''; // Clear previous results
+
+            // Ensure investment amount is within valid range
+            if (isNaN(investmentAmount) || investmentAmount < 10 || investmentAmount > 50000) {
+                resultsDiv.innerHTML = '<p class="text-red-500 text-center col-span-full">Por favor, introduce un monto de inversión válido entre $10 y $50,000.</p>';
+                document.getElementById('startInvestmentButton').textContent = 'Comenzar Inversión';
+                return;
+            }
+
+            // Update the "Comenzar Inversión" button text
+            document.getElementById('startInvestmentButton').textContent = `Comenzar Inversión de ${investmentAmount.toFixed(2)} US$`;
+
+
+            // Get selected period in days
+            const selectedPeriodButton = document.querySelector('#periodButtons button.active');
+            let selectedDays = parseInt(selectedPeriodButton.dataset.days);
+
+            // Function to calculate future value with daily compounding
+            const calculateFutureValue = (principal, dailyRate, days) => {
+                let futureValue = principal;
+                for (let i = 0; i < days; i++) {
+                    futureValue += futureValue * dailyRate;
+                }
+                return futureValue;
+            };
+
+            // Calculate for the selected period
+            const futureValueSelectedPeriod = calculateFutureValue(investmentAmount, dailyReturnRate, selectedDays);
+            const totalProfitSelectedPeriod = futureValueSelectedPeriod - investmentAmount;
+
+            // Calculate daily gain
+            const dailyGain = investmentAmount * dailyReturnRate;
+
+            // Calculate total in 30 days (approx. 22 working days)
+            const futureValue30Days = calculateFutureValue(investmentAmount, dailyReturnRate, 22);
+            const totalProfit30Days = futureValue30Days - investmentAmount;
+
+
+            // Calculate annual projection (approx. 260 working days)
+            const futureValueAnnual = calculateFutureValue(investmentAmount, dailyReturnRate, 260);
+            const totalProfitAnnual = futureValueAnnual - investmentAmount;
+            const roiAnnual = ((totalProfitAnnual / investmentAmount) * 100).toFixed(2);
+
+
+            // Display results
+            resultsDiv.innerHTML = `
+                <div class="bg-blue-50 p-4 rounded-lg flex items-center justify-between">
+                    <p class="text-lg font-medium flex items-center"><i class="fas fa-calendar-day text-primary mr-2"></i> Ganancia Diaria</p>
+                    <span class="text-2xl font-bold text-primary">$${dailyGain.toFixed(2)} US$</span>
+                </div>
+                <div class="bg-blue-50 p-4 rounded-lg flex items-center justify-between">
+                    <p class="text-lg font-medium flex items-center"><i class="fas fa-calendar-alt text-primary mr-2"></i> Total en 30 días</p>
+                    <span class="text-2xl font-bold text-primary">$${futureValue30Days.toFixed(2)} US$</span>
+                </div>
+                <div class="bg-blue-50 p-4 rounded-lg flex flex-col items-center justify-center text-center">
+                    <p class="text-lg font-medium flex items-center mb-2"><i class="fas fa-wallet text-primary mr-2"></i> Monto Total (Inversión + Ganancias)</p>
+                    <span class="text-3xl font-bold text-primary">$${futureValueSelectedPeriod.toFixed(2)} US$</span>
+                    <p class="text-sm text-gray-600 mt-1">+${((totalProfitSelectedPeriod / investmentAmount) * 100).toFixed(2)}% ROI</p>
+                </div>
+                <div class="bg-blue-50 p-4 rounded-lg flex flex-col items-center justify-center text-center">
+                    <p class="text-lg font-medium flex items-center mb-2"><i class="fas fa-chart-line text-primary mr-2"></i> Proyección Anual (${260} días hábiles)</p>
+                    <span class="text-3xl font-bold text-primary">$${futureValueAnnual.toFixed(2)} US$</span>
+                    <p class="text-sm text-gray-600 mt-1">Crecimiento compuesto estimado</p>
+                </div>
+            `;
+        }
+
+        // Event listeners for quick amount buttons
+        document.getElementById('quickAmountButtons').addEventListener('click', function(event) {
+            if (event.target.tagName === 'BUTTON') {
+                // Remove active class from all buttons
+                document.querySelectorAll('#quickAmountButtons button').forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                event.target.classList.add('active');
+                // Update input field and recalculate
+                document.getElementById('investmentAmount').value = event.target.dataset.amount;
+                calculateIncome();
+            }
+        });
+
+        // Event listeners for period buttons
+        document.getElementById('periodButtons').addEventListener('click', function(event) {
+            if (event.target.tagName === 'BUTTON') {
+                // Remove active class from all buttons
+                document.querySelectorAll('#periodButtons button').forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                event.target.classList.add('active');
+                // Recalculate based on new period
+                calculateIncome();
+            }
+        });
+
+        // Initial calculation on page load
+        window.onload = calculateIncome;
+    </script>
+</body>
+</html>
