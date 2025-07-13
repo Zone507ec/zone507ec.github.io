@@ -115,6 +115,7 @@
                 <a href="#servicios" class="text-gray-600 hover:text-primary transition duration-300">Servicios</a>
                 <a href="#calculadora" class="text-gray-600 hover:text-primary transition duration-300">Calculadora</a>
                 <a href="#nosotros" class="text-gray-600 hover:text-primary transition duration-300">Nosotros</a>
+                <a href="#mas-informacion" class="text-gray-600 hover:text-primary transition duration-300">Más Información</a> <!-- New nav link -->
                 <a href="#contacto" class="text-gray-600 hover:text-primary transition duration-300">Contacto</a>
             </div>
             <div class="hidden md:block">
@@ -134,7 +135,7 @@
             <a href="#servicios" class="block text-gray-600 hover:text-primary transition duration-300 py-2">Servicios</a>
             <a href="#calculadora" class="block text-gray-600 hover:text-primary transition duration-300 py-2">Calculadora</a>
             <a href="#nosotros" class="block text-gray-600 hover:text-primary transition duration-300 py-2">Nosotros</a>
-            <a href="#contacto" class="block text-gray-600 hover:text-primary transition duration-300 py-2">Contacto</a>
+            <a href="#mas-informacion" class="block text-gray-600 hover:text-primary transition duration-300 py-2">Más Información</a> <!-- New mobile nav link -->
             <a href="#contacto" class="block cta-button bg-primary text-white font-bold py-2 px-6 rounded-full text-sm text-center mt-4 hover:bg-dark-gray">
                 Invertir Ahora
             </a>
@@ -180,7 +181,7 @@
                     <div class="feature-card bg-white p-8 rounded-xl shadow-lg-custom text-center">
                         <div class="text-primary text-5xl mb-4"><i class="fas fa-chart-line"></i></div>
                         <h3 class="text-2xl font-semibold mb-3 text-dark-gray">Servicios Financieros</h3>
-                        <p class="text-gray-600">Inversiones diversificadas en el sector financiero con rendimientos consistentes.</p>
+                        <p class="text-gray-600">Inversiones diversificadas en el sector financiero con rendimientos consistentemente.</p>
                     </div>
                     <!-- Service Card 2 -->
                     <div class="feature-card bg-white p-8 rounded-xl shadow-lg-custom text-center">
@@ -239,7 +240,7 @@
                         <p class="text-gray-600 mb-6">Ajusta los parámetros para calcular tus ganancias potenciales.</p>
 
                         <label for="investmentAmount" class="block text-lg font-medium mb-2">Monto de Inversión (USD)</label>
-                        <input type="number" id="investmentAmount" value="1000" min="10" max="50000"
+                        <input type="number" id="investmentAmount" value="100" min="10" max="50000"
                                class="w-full p-3 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary text-xl mb-4"
                                placeholder="Ej: 1000" oninput="calculateIncome()">
 
@@ -250,14 +251,15 @@
                             <button class="px-4 py-2 rounded-lg border border-gray-300" data-amount="5000">$5,000</button>
                             <button class="px-4 py-2 rounded-lg border border-gray-300" data-amount="10000">$10,000</button>
                             <button class="px-4 py-2 rounded-lg border border-gray-300" data-amount="25000">$25,000</button>
+                            <button class="px-4 py-2 rounded-lg border border-gray-300" data-amount="50000">$50,000</button>
                         </div>
 
-                        <label for="investmentPeriod" class="block text-lg font-medium mb-2">Período (días hábiles)</label>
+                        <label for="investmentPeriod" class="block text-lg font-medium mb-2">Período</label>
                         <div class="flex flex-wrap gap-2 mb-6 calculator-btn-group" id="periodButtons">
-                            <button class="px-4 py-2 rounded-lg border border-gray-300 active" data-days="22">1 mes</button>
-                            <button class="px-4 py-2 rounded-lg border border-gray-300" data-days="66">3 meses</button>
-                            <button class="px-4 py-2 rounded-lg border border-gray-300" data-days="132">6 meses</button>
-                            <button class="px-4 py-2 rounded-lg border border-gray-300" data-days="260">1 año</button>
+                            <button class="px-4 py-2 rounded-lg border border-gray-300 active" data-period="mensual">Por Mes</button>
+                            <button class="px-4 py-2 rounded-lg border border-gray-300" data-period="trimestral">Trimestral</button>
+                            <button class="px-4 py-2 rounded-lg border border-gray-300" data-period="semestral">Semestral</button>
+                            <button class="px-4 py-2 rounded-lg border border-gray-300" data-period="anual">Anual</button>
                         </div>
 
                         <div class="bg-gray-100 p-6 rounded-lg mt-8">
@@ -281,7 +283,7 @@
                         </div>
 
                         <button class="cta-button bg-primary text-white font-bold py-3 px-6 rounded-full hover:bg-dark-gray transition duration-300 w-full mt-8" id="startInvestmentButton">
-                            Comenzar Inversión de 1000.00 US$
+                            Comenzar Inversión de 100.00 US$
                         </button>
 
                         <p class="text-sm text-gray-500 mt-6 p-4 bg-gray-100 rounded-lg">
@@ -340,6 +342,36 @@
                             <i class="fas fa-map-marker-alt text-primary text-2xl mb-2"></i>
                             <p class="font-semibold">Barcelona, España</p>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Section: Más Información -->
+        <section id="mas-informacion" class="py-16 md:py-24 bg-blue-100 text-gray-800 rounded-xl mx-4 my-8">
+            <div class="container mx-auto px-4 animate-slide-up">
+                <h2 class="text-4xl font-bold text-center text-dark-gray mb-4">Más Información sobre Vicion Power</h2>
+                <p class="text-lg text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+                    Descubre los detalles de nuestras oportunidades de inversión y cómo puedes unirte a nuestra comunidad.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <p class="text-lg leading-relaxed mb-4">
+                            Vicion Power es una empresa que ofrece oportunidades de inversión innovadoras diseñadas para generar ingresos pasivos consistentemente. Estamos legalmente constituidos en los Estados Unidos y México, operando como SAPI, SOFOM e INC, y estamos registrados con la SEC.
+                        </p>
+                        <p class="text-lg leading-relaxed mb-4">
+                            Ofrecemos paquetes de inversión desde tan solo $10 USD, con un rendimiento diario fijo del 0.77% de lunes a viernes, lo que se traduce en un rendimiento anual del 200%. Diversificamos las inversiones en sectores de alto crecimiento como servicios financieros, bienes raíces, productos inteligentes y metales. También participamos en sectores estratégicos como el comercio electrónico y el turismo.
+                        </p>
+                        <p class="text-lg leading-relaxed mb-4">
+                            Además de las inversiones, Vicion Power brinda la oportunidad de construir tu propio equipo, ofreciendo bonificaciones por referidos directos, crecimiento de estructura binaria, liderazgo y logros de rango. Contamos con un programa único "Vivienda para Todos" a través de Trust Wise Bank, que permite a los inversores acceder a la propiedad de una vivienda.
+                        </p>
+                        <p class="text-lg leading-relaxed">
+                            Tenemos oficinas en EE.UU. (Las Vegas, Wenatchee), México (Xalapa), Colombia (Medellín), España (Barcelona) y Ecuador (Quito), expandiendo nuestra presencia global para servir mejor a nuestros inversores.
+                        </p>
+                    </div>
+                    <div>
+                        <!-- Image for the new section -->
+                        <img src="/_api/file/uploaded:image_04e7f8.png-7cf87036-2d96-4b26-a77a-c4ebbc00182d" alt="Inversiones Inteligentes" class="rounded-xl shadow-lg-custom w-full h-auto object-cover" onerror="this.onerror=null; this.src='https://placehold.co/600x400/cccccc/333333?text=Imagen+no+disponible';">
                     </div>
                 </div>
             </div>
@@ -438,6 +470,68 @@
     </footer>
 
     <script>
+        // Investment data based on the formula: Investment * 0.77% * 5 days * 4.33 weeks/month
+        // Annual total is fixed to match the original image's annual total for listed amounts.
+        const investmentData = {
+            10: {},
+            25: {},
+            50: {},
+            100: {},
+            250: {},
+            500: {},
+            1000: {},
+            2500: {},
+            5000: {},
+            10000: {},
+            25000: {},
+            50000: {}
+        };
+
+        const dailyReturnRate = 0.0077; // 0.77%
+        const workingDaysPerWeek = 5;
+        const weeksPerMonth = 4.33; // Approx 4.33 weeks in a month
+
+        // Original annual total values from the image for fixed ROI
+        const originalAnnualTotals = {
+            10: 20,
+            25: 50,
+            50: 100,
+            100: 200,
+            250: 500,
+            500: 1000,
+            1000: 2000,
+            2500: 5000,
+            5000: 10000,
+            10000: 20000,
+            25000: 50000,
+            50000: 100000
+        };
+
+        // Populate investmentData with calculated values
+        for (const amount of Object.keys(investmentData)) {
+            const investmentAmount = parseFloat(amount);
+            const dailyProfit = investmentAmount * dailyReturnRate;
+            const monthlyProfit = dailyProfit * workingDaysPerWeek * weeksPerMonth;
+            const trimestralProfit = monthlyProfit * 3;
+            const semestralProfit = monthlyProfit * 6;
+            const annualProfitCalculated = monthlyProfit * 12; // Calculated annual profit
+
+            // Use the original annual total from the image, and derive annual profit from it
+            const annualTotalFixed = originalAnnualTotals[investmentAmount];
+            const annualProfitFixed = annualTotalFixed - investmentAmount;
+
+            investmentData[amount] = {
+                daily_profit: dailyProfit,
+                mensual_profit: monthlyProfit,
+                trimestral_profit: trimestralProfit,
+                semestral_profit: semestralProfit,
+                annual_profit_calculated: annualProfitCalculated, // Keep this for reference if needed
+                anual_total: annualTotalFixed, // This is the fixed total from the image
+                anual_profit: annualProfitFixed // This is the profit derived from the fixed annual total
+            };
+        }
+
+
         // Mobile menu toggle
         document.getElementById('mobile-menu-button').addEventListener('click', function() {
             const mobileMenu = document.getElementById('mobile-menu');
@@ -463,8 +557,6 @@
         function calculateIncome() {
             const investmentAmountInput = document.getElementById('investmentAmount');
             let investmentAmount = parseFloat(investmentAmountInput.value);
-            const dailyReturnRate = 0.0077; // 0.77%
-            const workingDaysPerWeek = 5; // Monday to Friday
 
             const resultsDiv = document.getElementById('calculatorResults');
             resultsDiv.innerHTML = ''; // Clear previous results
@@ -479,88 +571,136 @@
             // Update the "Comenzar Inversión" button text
             document.getElementById('startInvestmentButton').textContent = `Comenzar Inversión de ${investmentAmount.toFixed(2)} US$`;
 
-
-            // Get selected period in days
+            // Get selected period
             const selectedPeriodButton = document.querySelector('#periodButtons button.active');
-            let selectedDays = parseInt(selectedPeriodButton.dataset.days);
+            const selectedPeriodKey = selectedPeriodButton.dataset.period; // e.g., "mensual", "trimestral"
+            const selectedPeriodText = selectedPeriodButton.textContent; // e.g., "Por Mes", "Trimestral"
 
-            // Function to calculate future value with daily compounding
-            const calculateFutureValue = (principal, dailyRate, days) => {
-                let futureValue = principal;
-                for (let i = 0; i < days; i++) {
-                    futureValue += futureValue * dailyRate;
+            let dailyGain, profitForSelectedPeriod, totalReturnSelectedPeriod, annualProfit, annualTotalReturn, roiAnnual;
+
+            // Check if the exact investment amount exists in the pre-calculated table
+            if (investmentData[investmentAmount]) {
+                const data = investmentData[investmentAmount];
+
+                dailyGain = data.daily_profit;
+
+                switch (selectedPeriodKey) {
+                    case 'mensual':
+                        profitForSelectedPeriod = data.mensual_profit;
+                        break;
+                    case 'trimestral':
+                        profitForSelectedPeriod = data.trimestral_profit;
+                        break;
+                    case 'semestral':
+                        profitForSelectedPeriod = data.semestral_profit;
+                        break;
+                    case 'anual':
+                        profitForSelectedPeriod = data.anual_profit; // Use the derived annual profit
+                        break;
+                    default:
+                        profitForSelectedPeriod = data.mensual_profit; // Default to monthly
+                        break;
                 }
-                return futureValue;
-            };
+                totalReturnSelectedPeriod = investmentAmount + profitForSelectedPeriod;
 
-            // Calculate for the selected period
-            const futureValueSelectedPeriod = calculateFutureValue(investmentAmount, dailyReturnRate, selectedDays);
-            const totalProfitSelectedPeriod = futureValueSelectedPeriod - investmentAmount;
+                annualTotalReturn = data.anual_total; // This is the fixed annual total from the image
+                annualProfit = data.anual_profit; // This is the profit derived from the fixed annual total
+                roiAnnual = ((annualProfit / investmentAmount) * 100).toFixed(2);
 
-            // Calculate daily gain
-            const dailyGain = investmentAmount * dailyReturnRate;
+            } else {
+                // Fallback to 0.77% daily compounding if amount is not in the fixed table
+                // This part remains mostly the same as before for non-table amounts
+                dailyGain = investmentAmount * dailyReturnRate;
 
-            // Calculate total in 30 days (approx. 22 working days)
-            const futureValue30Days = calculateFutureValue(investmentAmount, dailyReturnRate, 22);
-            const totalProfit30Days = futureValue30Days - investmentAmount;
+                let daysForPeriod;
+                switch (selectedPeriodKey) {
+                    case 'mensual':
+                        daysForPeriod = workingDaysPerWeek * weeksPerMonth; // Approx 21.65 working days for a month
+                        break;
+                    case 'trimestral':
+                        daysForPeriod = (workingDaysPerWeek * weeksPerMonth) * 3; // Approx 64.95 working days for 3 months
+                        break;
+                    case 'semestral':
+                        daysForPeriod = (workingDaysPerWeek * weeksPerMonth) * 6; // Approx 129.9 working days for 6 months
+                        break;
+                    case 'anual':
+                        daysForPeriod = 260; // For non-table amounts, annual is also calculated by compounding
+                        break;
+                    default:
+                        daysForPeriod = workingDaysPerWeek * weeksPerMonth;
+                        break;
+                }
 
+                let futureValue = investmentAmount;
+                for (let i = 0; i < Math.round(daysForPeriod); i++) { // Round days to nearest integer for compounding
+                    futureValue += futureValue * dailyReturnRate;
+                }
+                totalReturnSelectedPeriod = futureValue;
+                profitForSelectedPeriod = totalReturnSelectedPeriod - investmentAmount;
 
-            // Calculate annual projection (approx. 260 working days)
-            const futureValueAnnual = calculateFutureValue(investmentAmount, dailyReturnRate, 260);
-            const totalProfitAnnual = futureValueAnnual - investmentAmount;
-            const roiAnnual = ((totalProfitAnnual / investmentAmount) * 100).toFixed(2);
+                // Annual projection and ROI for non-table amounts
+                let annualFutureValue = investmentAmount;
+                for (let i = 0; i < 260; i++) { // 260 working days for annual
+                    annualFutureValue += annualFutureValue * dailyReturnRate;
+                }
+                annualTotalReturn = annualFutureValue;
+                annualProfit = annualFutureValue - investmentAmount;
+                roiAnnual = ((annualProfit / investmentAmount) * 100).toFixed(2);
+            }
 
-
-            // Display results
+            // Display results using the calculator-output-grid and calculator-output-item classes
             resultsDiv.innerHTML = `
-                <div class="bg-blue-50 p-4 rounded-lg flex items-center justify-between">
-                    <p class="text-lg font-medium flex items-center"><i class="fas fa-calendar-day text-primary mr-2"></i> Ganancia Diaria</p>
-                    <span class="text-2xl font-bold text-primary">$${dailyGain.toFixed(2)} US$</span>
-                </div>
-                <div class="bg-blue-50 p-4 rounded-lg flex items-center justify-between">
-                    <p class="text-lg font-medium flex items-center"><i class="fas fa-calendar-alt text-primary mr-2"></i> Total en 30 días</p>
-                    <span class="text-2xl font-bold text-primary">$${futureValue30Days.toFixed(2)} US$</span>
-                </div>
-                <div class="bg-blue-50 p-4 rounded-lg flex flex-col items-center justify-center text-center">
-                    <p class="text-lg font-medium flex items-center mb-2"><i class="fas fa-wallet text-primary mr-2"></i> Monto Total (Inversión + Ganancias)</p>
-                    <span class="text-3xl font-bold text-primary">$${futureValueSelectedPeriod.toFixed(2)} US$</span>
-                    <p class="text-sm text-gray-600 mt-1">+${((totalProfitSelectedPeriod / investmentAmount) * 100).toFixed(2)}% ROI</p>
-                </div>
-                <div class="bg-blue-50 p-4 rounded-lg flex flex-col items-center justify-center text-center">
-                    <p class="text-lg font-medium flex items-center mb-2"><i class="fas fa-chart-line text-primary mr-2"></i> Proyección Anual (${260} días hábiles)</p>
-                    <span class="text-3xl font-bold text-primary">$${futureValueAnnual.toFixed(2)} US$</span>
-                    <p class="text-sm text-gray-600 mt-1">Crecimiento compuesto estimado</p>
+                <div class="calculator-output-grid">
+                    <div class="calculator-output-item">
+                        <p class="text-lg font-medium flex items-center justify-center"><i class="fas fa-calendar-day text-primary mr-2"></i> Ganancia Diaria</p>
+                        <span>$${dailyGain.toFixed(2)} US$</span>
+                    </div>
+                    <div class="calculator-output-item">
+                        <p class="text-lg font-medium flex items-center justify-center"><i class="fas fa-calendar-alt text-primary mr-2"></i> Total ${selectedPeriodText}</p>
+                        <span>$${totalReturnSelectedPeriod.toFixed(2)} US$</span>
+                    </div>
+                    <div class="calculator-output-item">
+                        <p class="text-lg font-medium flex items-center justify-center"><i class="fas fa-money-bill-wave text-primary mr-2"></i> Ganancia ${selectedPeriodText}</p>
+                        <span>$${profitForSelectedPeriod.toFixed(2)} US$</span>
+                    </div>
+                    <div class="calculator-output-item">
+                        <p class="text-lg font-medium flex items-center justify-center"><i class="fas fa-chart-pie text-primary mr-2"></i> Proyección Anual</p>
+                        <span>$${annualTotalReturn.toFixed(2)} US$</span>
+                    </div>
+                    <div class="calculator-output-item">
+                        <p class="text-lg font-medium flex items-center justify-center"><i class="fas fa-percentage text-primary mr-2"></i> ROI Anual</p>
+                        <span>${roiAnnual}%</span>
+                    </div>
                 </div>
             `;
         }
 
         // Event listeners for quick amount buttons
-        document.getElementById('quickAmountButtons').addEventListener('click', function(event) {
-            if (event.target.tagName === 'BUTTON') {
-                // Remove active class from all buttons
+        document.querySelectorAll('#quickAmountButtons button').forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove 'active' class from all buttons
                 document.querySelectorAll('#quickAmountButtons button').forEach(btn => btn.classList.remove('active'));
-                // Add active class to clicked button
-                event.target.classList.add('active');
-                // Update input field and recalculate
-                document.getElementById('investmentAmount').value = event.target.dataset.amount;
-                calculateIncome();
-            }
+                // Add 'active' class to the clicked button
+                this.classList.add('active');
+                // Update the investment amount input
+                document.getElementById('investmentAmount').value = this.dataset.amount;
+                calculateIncome(); // Recalculate income
+            });
         });
 
         // Event listeners for period buttons
-        document.getElementById('periodButtons').addEventListener('click', function(event) {
-            if (event.target.tagName === 'BUTTON') {
-                // Remove active class from all buttons
+        document.querySelectorAll('#periodButtons button').forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove 'active' class from all buttons
                 document.querySelectorAll('#periodButtons button').forEach(btn => btn.classList.remove('active'));
-                // Add active class to clicked button
-                event.target.classList.add('active');
-                // Recalculate based on new period
-                calculateIncome();
-            }
+                // Add 'active' class to the clicked button
+                this.classList.add('active');
+                calculateIncome(); // Recalculate income
+            });
         });
 
         // Initial calculation on page load
-        window.onload = calculateIncome;
+        document.addEventListener('DOMContentLoaded', calculateIncome);
     </script>
 </body>
 </html>
